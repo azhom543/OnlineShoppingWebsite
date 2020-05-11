@@ -13,7 +13,7 @@
                 <!-- Sub menu -->
                 <ul>
                     <li><a href="{{route('product.index')}}">Products</a></li>
-                    <li><a href="http://localhost/project/public/admin/product/create">Add Product</a></li>
+                    <li><a href="{{route('product.create')}}">Add Product</a></li>
                 </ul>
             </li>
         </ul>
