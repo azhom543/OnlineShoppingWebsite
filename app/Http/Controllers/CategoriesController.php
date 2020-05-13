@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -13,10 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        $products = Product::all();
         $categories = Category::all();
-
-
-        return view('admin.category.index')->with('categories','products');
+        return view('admin.category.index')->with(['categories'=>$categories, 'products'=>$products]);
     }
 
     /**
@@ -37,7 +37,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create(['name'=>$request->name,'slug'=>str_slug($request->name)]);
+        return back();
     }
 
     /**
@@ -48,7 +49,12 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        if(!empty($categoryId)){
+            $products=Category::find($id)->products;
+        }
+        $products=Category::find($id)->products;
+        $categories=Category::all();
+        return view('admin.category.index')->with(['categories'=>$categories,'products'=>$products]);
     }
 
     /**
@@ -82,6 +88,9 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category=Category::find($id);
+        $category->products()->delete();
+        $category->delete();
+        return back();
     }
 }

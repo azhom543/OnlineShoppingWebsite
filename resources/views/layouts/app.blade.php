@@ -43,6 +43,20 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">
+                            Cart
+
+                            <div class="badge">
+                                
+                                {{Cart::session(auth()->id())->getContent()->count()}}
+                            </div>
+
+                            </a>
+                        </li>
+
+
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -68,7 +82,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 container">
             @yield('content')
         </main>
     </div>

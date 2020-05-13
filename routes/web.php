@@ -27,6 +27,9 @@ Route::get('/shirt', 'FrontController@shirt')->name('shirt');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('category','CategoriesController');
+
+
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::prefix('admin')->group(function()
