@@ -27,7 +27,6 @@ Route::get('/shirt', 'FrontController@shirt')->name('shirt');
 
 
 Route::get('/home', 'HomeController@index');
-Route::resource('/cart', 'CartController');
 
 
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
