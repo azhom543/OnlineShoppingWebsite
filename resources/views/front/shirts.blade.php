@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>
-            Foundation for Sites
+            @yield('title','Creative Store')
         </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="dist/css/foundation.css"/>
@@ -34,6 +34,20 @@
                             CONTACT
                         </a>
                     </li>
+                    <li>
+                            <a class="dropdown-item" href="{{ route('user.logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                        
+                            <form id="logout-form" action="{{ route('user.logout') }}" method="GET" style="display: none;">
+                                @csrf
+                            </form>
+                            
+                    </li>
+                    
+
                     <li>
                         <a href="#">
                             <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">

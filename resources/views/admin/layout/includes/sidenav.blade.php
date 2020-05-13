@@ -14,6 +14,7 @@
                 <ul>
                     <li><a href="{{route('product.index')}}">Products</a></li>
                     <li><a href="{{route('product.create')}}">Add Product</a></li>
+<<<<<<< HEAD
                 </ul>
             </li>
             <li class="submenu">
@@ -24,6 +25,8 @@
                 <!-- Sub menu -->
                 <ul>
                     <li><a href="{{route('category.index')}}">Show Categories</a></li>
+=======
+>>>>>>> d9f6d9ea089518b1ffc6fa821f7f940437ecf183
                 </ul>
             </li>
         </ul>
