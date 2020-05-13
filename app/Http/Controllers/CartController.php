@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Product;
-use Validator;
+use Melihovv\ShoppingCart\Facades\ShoppingCart as Cart;
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class CartController extends Controller
 {
-    /*public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }*/
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('admin.product.index')->with('products',$products);
+        $cartItems = Cart::content();
+        return view('cart.index')->with('cartItems',$cartItems);
     }
 
     /**
@@ -31,8 +26,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name','id');
-        return view('admin.product.create')->with('categories',$categories);
+
+
     }
 
     /**
@@ -43,25 +38,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $formInput=$request->except('image');
-
-//        validation
-        $this->validate($request,[
-            'name'=>'required',
-            'size'=>'required',
-            'price'=>'required',
-            'image'=>'image|mimes:png,jpg,jpeg|max:10000'
-        ]);
-//        image upload
-        $image=$request->image;
-        if($image){
-            $imageName=$image->getClientOriginalName();
-            $image->move('images',$imageName);
-            $formInput['image']=$imageName;
-        }
-
-        Product::create($formInput);
-        return redirect()->route('product.index');
+        //
     }
 
     /**
@@ -72,7 +49,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -83,7 +60,23 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        //$product=Product::find($id);
+        $cartItems = Cart::content();
+        //Cart::add($id,$product->name,$product->price,1,['size'=>'medium']);
+        echo "<pre>";
+        echo var_dump($cartItems);
+        echo "</pre>";
+        echo "aaaaaaaaaaaaaaaaa";
+        //return back();
+    }
+
+    public function addItem($id)
+    {
+        $product=Product::find($id);
+        
+        Cart::add($id,$product->name,$product->price,1,['size'=>'medium']);
+
+        return back();
     }
 
     /**
@@ -95,7 +88,10 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+//        dd(Cart::content());
+//        dd($request->all());
+        Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
+        return back();
     }
 
     /**
@@ -106,6 +102,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+        return back();
     }
 }

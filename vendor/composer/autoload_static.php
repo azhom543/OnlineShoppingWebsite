@@ -28,6 +28,7 @@ class ComposerStaticInit3c7e6414fe6095dd5321795aef14efd9
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '17d016dc52a631c1e74d2eb8fdd57342' => __DIR__ . '/..' . '/laravel/helpers/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
@@ -107,6 +108,7 @@ class ComposerStaticInit3c7e6414fe6095dd5321795aef14efd9
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Melihovv\\ShoppingCart\\' => 22,
         ),
         'L' => 
         array (
@@ -344,6 +346,10 @@ class ComposerStaticInit3c7e6414fe6095dd5321795aef14efd9
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Melihovv\\ShoppingCart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -498,8 +504,12 @@ class ComposerStaticInit3c7e6414fe6095dd5321795aef14efd9
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/CartController.php',
+        'App\\Http\\Controllers\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\FrontController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrontController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -2532,6 +2542,16 @@ class ComposerStaticInit3c7e6414fe6095dd5321795aef14efd9
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'Melihovv\\ShoppingCart\\CartItem' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/CartItem.php',
+        'Melihovv\\ShoppingCart\\Coupons\\Coupon' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/Coupons/Coupon.php',
+        'Melihovv\\ShoppingCart\\Coupons\\FixedDiscountCoupon' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/Coupons/FixedDiscountCoupon.php',
+        'Melihovv\\ShoppingCart\\Coupons\\PercentDiscountCoupon' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/Coupons/PercentDiscountCoupon.php',
+        'Melihovv\\ShoppingCart\\Facades\\ShoppingCart' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/Facades/ShoppingCart.php',
+        'Melihovv\\ShoppingCart\\Repositories\\ShoppingCartDatabaseRepository' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/Repositories/ShoppingCartDatabaseRepository.php',
+        'Melihovv\\ShoppingCart\\Repositories\\ShoppingCartRedisRepository' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/Repositories/ShoppingCartRedisRepository.php',
+        'Melihovv\\ShoppingCart\\Repositories\\ShoppingCartRepositoryInterface' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/Repositories/ShoppingCartRepositoryInterface.php',
+        'Melihovv\\ShoppingCart\\ServiceProvider' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ServiceProvider.php',
+        'Melihovv\\ShoppingCart\\ShoppingCart' => __DIR__ . '/..' . '/melihovv/laravel-shopping-cart/src/ShoppingCart.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV6' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php',

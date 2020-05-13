@@ -88,11 +88,6 @@
             <i class="fi-laptop"></i>
             <p>Coded with love by Webdevmatics for educational purpose only</p>
 
-                    <i class="fab fa-facebook-f pages"></i>
-                    <i class="fab fa-twitter pages"></i>
-                    <i class="fab fa-linkedin pages"></i>
-                    <i class="fab fa-pinterest pages"></i>
-                    <i class="fab fa-google-plus pages"></i>
         </div>
         <div class="small-12 medium-4 large-4 columns">
             <i class="fi-html5"></i>

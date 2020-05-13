@@ -10,14 +10,14 @@ class FrontController extends Controller
     {
         $shirts=Product::all();
 
-        return view('front.home2',compact('shirts'));
+        return view('front.home')->with('shirts',$shirts);
     }
 
 
     public function shirts()
     {
         $shirts=Product::all();
-        return view('front.shirts',compact('shirts'));
+        return view('front.shirts')->with('shirts',$shirts);
     }
 
 
@@ -25,6 +25,6 @@ class FrontController extends Controller
     public function shirt(Product $product)
     {
 
-        return view('front.shirt',compact('product'));
+        return view('front.shirt')->with('product',$product);
     }
 }

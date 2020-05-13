@@ -19,14 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'FrontController@index')->name('Front');
+Route::get('/', 'FrontController@index')->name('home');
 Route::get('/shirts', 'FrontController@shirts')->name('shirts');
 Route::get('/shirt', 'FrontController@shirt')->name('shirt');
 
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+Route::resource('/cart', 'CartController');
+
+
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::prefix('admin')->group(function()
@@ -38,6 +41,7 @@ Route::prefix('admin')->group(function()
 
     //amin panal
     Route::resource('product' , 'ProductsController');
+    Route::resource('category','CategoriesController');
 
 
     // Password reset routes

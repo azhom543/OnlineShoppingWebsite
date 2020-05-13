@@ -68,7 +68,7 @@
                         <div class="large-12 columns">
                             <label>
                                 Select Size
-                                <select>
+                                    <select>
                                     <option value="small">
                                         Small
                                     </option>

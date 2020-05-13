@@ -18,7 +18,7 @@
                     <a href="index.html">
                         <i class="fa fa-home fa-lg" aria-hidden="true">
                         </i>
-                       MC-MyKey Shirts
+                       Creative Store Shirts
                     </a>
                 </h4>
             </div>
@@ -49,7 +49,7 @@
                     
 
                     <li>
-                        <a href="#">
+                        <a href="{{route('cart.index')}}">
                             <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
                             </i>
                             CART
@@ -69,7 +69,7 @@
             <div class="small-3 columns">
                 <div class="item-wrapper">
                     <div class="img-wrapper">
-                        <a class="button expanded add-to-cart">
+                    <a href="{{route('cart.edit',$shirt->id)}}" class="button expanded add-to-cart">
                             Add to Cart
                         </a>
                         <a href="#">
