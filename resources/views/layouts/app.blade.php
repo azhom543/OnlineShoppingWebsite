@@ -46,12 +46,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="">
                             Cart
-
-                            <div class="badge">
-                                
-                                {{Cart::session(auth()->id())->getContent()->count()}}
-                            </div>
-
                             </a>
                         </li>
 

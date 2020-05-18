@@ -3,14 +3,29 @@
 }
 
 .top-bar {
-    padding: 1% 50px;
+    padding: 0.5% 50px;
+}
+
+
+.large{
+  font-style: italic;
+  font-weight: bold;
+}
+.large:hover{
+  color: #090909;
+  font-style: italic;
+  font-weight: bold;
+
 }
 .top-bar a{
-  color: rgb(247, 247, 247);
-  margin-top: 8%;
+  color: rgb(233, 230, 230);
+  margin-top: 10%;
+  font-style: italic;
+  font-weight: bold;
 }
 .top-bar a:hover{
-	text-decoration: wheat;
+  color: #090909;
+	text-decoration: black;
 }
 
 /*HERO SECTION*/
@@ -146,4 +161,125 @@ p {
 }
 .pages:hover{
   color: whitesmoke;
+}
+
+.di7{
+    width: 100%;
+    height: 410px;
+    background-color: #292929;
+    text-align: center;
+}
+.di7d{
+    margin-left: 110px;
+}
+.sec4{
+    width: 27%;
+    float: left;
+    padding-left: 30px;
+}
+.sec4h4{
+    padding-top: 60px; 
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: left;
+    padding-bottom: 4%;
+}
+.sec4p1{
+    text-align: left;
+    font-size: 12px;
+    color: white;
+    line-height: 3;
+}
+.a{
+    margin-left: 10px;
+    display: inline;
+    float: left;
+    border-radius: 50%;
+    padding: 0px 15px 15px;
+    font-size: 28px;
+    color: white;
+    padding-top: 20px;
+    cursor: pointer;
+    background-color: black;
+}
+.a:hover{
+    color: whitesmoke;
+}
+.sec4p2{
+    color: white;
+    text-align: left;
+    font-size: 12px;
+    line-height: 3;
+}
+.sec4p2:hover{
+    color: #fD502E;
+    cursor: pointer;
+}
+.sec4d{
+    text-align: left;
+    color: white;
+    padding-bottom: 10px;
+}
+.sec4d:hover{
+    color: #fD502E;
+    cursor: pointer;
+}
+.foot{
+    width: 100%;
+    padding-top: 2%;
+    background-color: #090909;
+    height: 65px;
+}
+.ful{
+    list-style-type: none;
+    padding-left: 100px;
+}
+.fli,.foli{
+    float: left;
+    color: white;
+    font-size: 15px;
+}
+.foli{
+    padding-right: 380px;
+}
+.fli{
+    padding-left: 40px;
+}
+.fli:hover{
+    color: #fD502E;
+    cursor: pointer;
+}
+span:hover{
+    cursor: pointer;
+    color: #fD502E;
+}
+.y{
+    float: left;
+}
+.z,.y{
+    font-size: 38px;
+    background-color: #ED502E; 
+    color: white;
+    border-radius: 50%;
+    padding: 25px;
+}
+.sec11,.sec12,.sec13,.sec14,.sec21,.sec22,.sec23,.a{
+    opacity: 1;
+    position: relative;
+    animation-name: example;
+    animation-duration: 2.5s;
+}
+.sec12,.sec22{
+    animation-delay: 0.3s;
+}
+.sec13,.sec23{
+    animation-delay: 0.6s;
+}
+.sec14{
+    animation-delay: 0.9s;
+}
+@keyframes example{
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

@@ -31,17 +31,12 @@
                 <a href="{{route('home')}}">
                     <i class="fa fa-home fa-lg" aria-hidden="true">
                     </i>
-                    Creative Store Shirts
+                    Creative Store
                 </a>
             </h4>
         </div>
         <div class="top-bar-right">
             <ol class="menu">
-                <li>
-                    <a href="{{route('shirts')}}">
-                        shirts
-                    </a>
-                </li>
                 <li>
                     <a href="#">
                         Contact
@@ -57,10 +52,6 @@
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}">Register</a>
                     @endif
-                </li>
-                <li>
-                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
-                    </i>
                 </li>
             </ol>
         </div>
@@ -96,11 +87,12 @@
         </div>
 
         <div class="small-6 medium-4 large-4 columns">
-            <h4>Follow Us</h4>
+            <h4>Contact Us</h4>
             <ul class="footer-links">
-                <li><a href="https://github.com/webdevmatics">GitHub</a></li>
+                <i class="fa fa-github-alt" aria-hidden="true" ></i>
+                <li><a href="https://github.com/azhom543/OnlineShoppingWebsite">GitHub</a></li>
                 <li><a href="#">Facebook</a></li>
-                <li><a href="https://twitter.com/webdevmatics">Twitter</a></li>
+                <li><a href="#">Twitter</a></li>
             </ul>
         </div>
     </div>
