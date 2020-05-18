@@ -1,0 +1,11 @@
+php artisan tinker
+
+$admin = new App\Admin
+
+$admin->name = "your name"
+
+$admin->email = "your email"
+
+$admin->password = Hash::make('password')
+
+$admin->save()
