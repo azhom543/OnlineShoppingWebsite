@@ -38,7 +38,7 @@
         <div class="top-bar-right">
             <ol class="menu">
                 <li>
-                    <a href="#">
+                    <a href="{{ route('sendemail') }}">
                         Contact
                     </a>
                 </li>
