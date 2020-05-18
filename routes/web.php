@@ -24,6 +24,9 @@ Route::get('/shirts', 'FrontController@shirts')->name('shirts');
 Route::get('/shirt', 'FrontController@shirt')->name('shirt');
 
 
+Route::get('/sendemail', 'SendEmailController@index')->name('sendemail');
+
+Route::post('/sendemail/send', 'SendEmailController@send');
 
 
 Route::get('/home', 'HomeController@index');
