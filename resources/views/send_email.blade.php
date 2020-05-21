@@ -1,68 +1,71 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Send Your Message') }}</div>
+
+                <div class="card-body">
+
+                  @if(count($errors) > 0)
+                  <div class="alert alert-danger">
+                    <button type="botton" class="close" data-dismiss="alert">x</button>
+                    <ul>
+                      @foreach($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                      @endforeach
+                    </ul>
+                  </div>
+                  @endif
+                  @if($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                      <button type="button" class="close" data-dismiss="alert">x</button>
+                      <strong>{{ $message }}</strong>
+                    </div>
+
+                  @endif
 
 
-<!DOCTYPE html>
-<html>
- <head>
-  <title>Send Your Message</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style type="text/css">
-   .box{
-    width:600px;
-    margin:0 auto;
-    border:1px solid #ccc;
-   }
-   .has-error
-   {
-    border-color:#cc0000;
-    background-color:#ffff99;
-   }
-  
-  </style>
- </head>
- <body>
-     <br />
-     <br />
-     <br />
-     <div class="container box">
-      <h3 align="center">Send Your Message</h3><br />
-      @if(count($errors) > 0)
-      <div class="alert alert-danger">
-        <button type="botton" class="close" data-dismiss="alert">x</button>
-        <ul>
-          @foreach($errors->all() as $error)
-          <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-      @endif
-      @if($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-          <button type="button" class="close" data-dismiss="alert">x</button>
-          <strong>{{ $message }}</strong>
+                    <form method="POST" action="{{ route('mailing') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Enter Your Message') }}</label>
+
+                            <div class="col-md-6">
+                              <textarea name="message" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Send') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-      @endif
-        <form method="post" action="{{url('sendemail/send')}}">
-    {{ csrf_field() }}
-    <div class="form-group">
-     <label>Enter Your Name</label>
-     <input type="text" name="name" class="form-control" value="" />
     </div>
-    <div class="form-group">
-     <label>Enter Your Email</label>
-     <input type="text" name="email" class="form-control" value="" />
-    </div>
-    <div class="form-group">
-     <label>Enter Your Message</label>
-     <textarea name="message" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-     <input type="submit" name="send" class="btn btn-info" value="Send" />
-    </div>
-   </form>
-
-  </div>
- </body>
-</html>
+</div>
+@endsection

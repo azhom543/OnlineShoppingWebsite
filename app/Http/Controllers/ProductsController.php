@@ -106,6 +106,8 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->back()->with('flash_message_error','Product Deleted');
     }
 }

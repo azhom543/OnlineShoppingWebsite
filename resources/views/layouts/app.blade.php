@@ -15,9 +15,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 
 
     <!--<link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -43,11 +44,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link" href="">
                             Cart
                             </a>
-                        </li>
+                        </li>-->
 
 
 
@@ -75,10 +76,17 @@
                 </div>
             </div>
         </nav>
-
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 container mydiv">
+            <h1 class="myh1">Creative Store</h1>
+            <i class="fa fa-shopping-cart mycart" aria-hidden="true"></i>
+            </div>
+            <br>
         <main class="py-4 container">
+            
             @yield('content')
         </main>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -8,8 +8,8 @@
             @yield('title','Creative Store')
         </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="dist/css/foundation.css"/>
-        <link rel="stylesheet" href="dist/css/app.css"/>
+        <link rel="stylesheet" href="{{asset('dist/css/foundation.css')}}"/>
+        <link rel="stylesheet" href="{{asset('dist/css/app.css')}}"/>
         <link rel="stylesheet" href="{{asset('dist/css/fontawesome-all.min')}}"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
@@ -27,12 +27,12 @@
             <div class="top-bar-right">
                 <ol class="menu">
                     <li>
-                        <a href="shirts.html">
+                        <a href="#">
                             SHIRTS
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('sendemail') }}">
                             CONTACT
                         </a>
                     </li>
@@ -51,7 +51,7 @@
                     
 
                     <li>
-                        <a href="#">
+                    <a href="{{route('cart.index')}}">
                             <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
                             </i>
                             CART
@@ -84,7 +84,7 @@
                         </h3>
                     </a>
                     <h5>
-                        {{$shirt->price}}
+                        ${{$shirt->price}}
                     </h5>
                     <p>
                         {{$shirt->description}}

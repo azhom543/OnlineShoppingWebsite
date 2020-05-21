@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cartItems = Cart::content();
-        return view('cart.index')->with('cartItems',$cartItems);
+        return view('cart.index');
     }
 
     /**
@@ -64,14 +59,14 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        //$product=Product::find($id);
+        $product=Product::find($id);
         $cartItems = Cart::content();
-        //Cart::add($id,$product->name,$product->price,1,['size'=>'medium']);
+        Cart::add($id,$product->name,$product->price,1,['size'=>'medium']);
         echo "<pre>";
         echo var_dump($cartItems);
         echo "</pre>";
         echo "aaaaaaaaaaaaaaaaa";
-        //return back();
+        return back();
     }
 
     public function addItem($id)
