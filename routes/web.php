@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +26,14 @@ Route::get('/shirts', 'FrontController@shirts')->name('shirts');
 Route::get('/shirt', 'FrontController@shirt')->name('shirt');
 
 
+
 Route::get('/sendemail', 'SendEmailController@index')->name('sendemail');
 Route::post('/sendemail/send', 'SendEmailController@send')->name('mailing');
 
 
 Route::get('/home', 'HomeController@index');
 Route::resource('cart','CartController');
-
+Route::get('/cart{id}', 'CartController@edit')->name('cart.add');
 
 
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
