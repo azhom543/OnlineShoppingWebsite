@@ -1,6 +1,9 @@
 .carousel-inner{
   height: 400px;
 }
+body{
+background-image: url('../../images/sad.jpg');
+}
 .row{
   text-align: center;
   margin-left: 68px !important;
@@ -53,6 +56,7 @@ section.hero {
   border: 2px solid #efefef;
   border-radius: 7px;
   margin-top: 40px;
+  background-color: whitesmoke;
 }
 /*.item-wrapper:hover .img-wrapper img {
   -webkit-filter: grayscale(0);

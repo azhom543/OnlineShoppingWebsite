@@ -16,8 +16,8 @@
             </strong>
         </h2>
         <br>
-        <a href="{{url('/shirts')}}">
-            <button class="button large">Check out My Shirts</button>
+        <a href="{{route('shirts')}}">
+            <button class="button large">Check out The Products</button>
         </a>
     </section>
 

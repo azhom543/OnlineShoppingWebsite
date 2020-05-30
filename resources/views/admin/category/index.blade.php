@@ -15,7 +15,6 @@
                         {{method_field('DELETE')}}
                         <input class="btn btn-sm btn-danger" type="submit" value="Delete">
                      </form>
-
                 </li>
             @empty
                 <li>No Items</li>

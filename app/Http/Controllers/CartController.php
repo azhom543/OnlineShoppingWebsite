@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Product;
-use Melihovv\ShoppingCart\Facades\ShoppingCart as Cart;
+use App\Cart;
 use Illuminate\Http\Request;
+use Auth;
 
 class CartController extends Controller
 {
@@ -15,7 +16,15 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart.index');
+        if(Auth::user() == NULL && Auth::guard('admin') != NULL){
+            $cartitems = DB::table('carts')->get();
+            return view('cart.index')->with('cartitems', $cartitems);
+        }else
+        {
+            $userid = Auth::user()->id;
+            $cartitems = DB::table('carts')->where('user_id', $userid)->get();
+            return view('cart.index')->with('cartitems', $cartitems);
+        }
     }
 
     /**
@@ -25,10 +34,7 @@ class CartController extends Controller
      */
     public function create()
     {
-
-
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,9 +43,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
-
     /**
      * Display the specified resource.
      *
@@ -48,9 +52,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,23 +61,28 @@ class CartController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::user() == NULL){
+            return redirect()->route('login');
+        }
+        else{
+        $userid = Auth::user()->id;
         $product=Product::find($id);
-        $cartItems = Cart::content();
-        Cart::add($id,$product->name,$product->price,1,['size'=>'medium']);
-        echo "<pre>";
-        echo var_dump($cartItems);
-        echo "</pre>";
-        echo "aaaaaaaaaaaaaaaaa";
+        $forminput = array(
+            "Productname" => $product->name,
+            "ProductDescription" => $product->description,
+            "ProductSize" => $product ->size,
+            "Price" => $product->price,
+            "image" => $product->image,
+            "user_id" => $userid
+        );
+        Cart::create($forminput);
         return back();
+    }
     }
 
     public function addItem($id)
     {
-        $product=Product::find($id);
         
-        Cart::add($id,$product->name,$product->price,1,['size'=>'medium']);
-
-        return back();
     }
 
     /**
@@ -87,10 +94,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        dd(Cart::content());
-//        dd($request->all());
-        Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
-        return back();
+        //
     }
 
     /**
@@ -101,7 +105,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::remove($id);
-        return back();
+        $cartitem = Cart::find($id);
+        $cartitem->delete();
+        return redirect()->back()->with('flash_message_error','Product Deleted');
     }
 }

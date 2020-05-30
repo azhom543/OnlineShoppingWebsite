@@ -30,7 +30,7 @@ Route::post('/sendemail/send', 'SendEmailController@send')->name('mailing');
 
 Route::get('/home', 'HomeController@index');
 Route::resource('cart','CartController');
-
+Route::get('/cart{id}', 'CartController@edit')->name('cart.add');
 
 
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
@@ -45,6 +45,9 @@ Route::prefix('admin')->group(function()
   Route::resource('product' , 'ProductsController');
   Route::resource('category','CategoriesController');
 
+  //routes for deleting users by admin
+  Route::get('/users', 'AdminController@ShowUsers')->name('admin.users');
+  Route::delete('/users/{user}', 'AdminController@DestroyUser')->name('user.delete');
   // Password reset routes
 /*Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
 Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');

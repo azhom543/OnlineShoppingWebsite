@@ -60,20 +60,8 @@
     <div>
         @yield('content')
     </div>
-
-
-    <div>
-        <div class="reveal" id="checkoutDetailModal" data-reveal>
-            <cart-detail :cart="cart" :carttotal="cartTotal" :totalitems="totalItems"></cart-detail>
-
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
+    
 </div>
-
-
 <footer class="footer">
     <div class="row full-width">
         <div class="small-12 medium-4 large-4 columns">
