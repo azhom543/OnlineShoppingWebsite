@@ -25,6 +25,8 @@ Route::get('/', 'FrontController@index')->name('home');
 Route::get('/shirts', 'FrontController@shirts')->name('shirts');
 Route::get('/shirt', 'FrontController@shirt')->name('shirt');
 
+Route::resource('cart','CartController');
+
 
 
 Route::get('/sendemail', 'SendEmailController@index')->name('sendemail');
@@ -59,5 +61,8 @@ Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showRes
   Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
   Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
   Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+
+
+
 });
 

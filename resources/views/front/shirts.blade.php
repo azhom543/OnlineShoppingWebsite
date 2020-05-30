@@ -55,8 +55,8 @@
                             <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
                             </i>
                             CART
-                            <span class="alert badge">
-                                8
+                          <span class="alert badge">
+                                {{ $count ?? ''}}
                             </span>
                         </a>
                     </li>

@@ -27,5 +27,26 @@ class CartController extends Controller
         Cart::create($forminput);
         return back();
         }
+
+
+    }
+    public function index()
+    {
+        if(Auth::user() == NULL && Auth::guard('admin') != NULL){
+            $cartitems = DB::table('carts')->get();
+            return view('cart.index')->with('cartitems', $cartitems);
+        }else
+        {
+            $userid = Auth::user()->id;
+            $cartitems = DB::table('carts')->where('user_id', $userid)->get();
+            return view('cart.index')->with('cartitems', $cartitems);
+        }
+    }
+
+    public function destroy($id)
+    {
+        $cartitem = Cart::find($id);
+        $cartitem->delete();
+        return redirect()->back()->with('flash_message_error','Product Deleted');
     }
 }
