@@ -16,16 +16,15 @@
                     <li><a href="{{route('product.create')}}">Add Product</a></li>
                 </ul>
             </li>
-            <li class="submenu">
+            <!--<li class="submenu">
                 <a href="#">
                     <i class="glyphicon glyphicon-list"></i> Categories
                     <span class="caret pull-right"></span>
                 </a>
-                <!-- Sub menu -->
                 <ul>
                     <li><a href="{{route('category.index')}}">Show Categories</a></li>
                 </ul>
-            </li>
+            </li>-->
             <li class="submenu">
                 <a href="#">
                     <i class="glyphicon glyphicon-list"></i> Users
